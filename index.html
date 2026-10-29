@@ -207,91 +207,91 @@
             </form>
         </div>
 
-    <!-- 2. DYNAMIC STATISTICS CARDS (Mode Admin Only) -->
-    <div id="statsContainer" class="grid grid-cols-2 sm:grid-cols-4 gap-4 no-print admin-only hidden">
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
-            <div class="p-3 bg-indigo-50 rounded-lg text-indigo-600">
-                <i class="fa-solid fa-list-check text-xl"></i>
-            </div>
-            <div>
-                <p class="text-xs text-slate-500 font-medium">Total Kegiatan</p>
-                <h3 id="statTotal" class="text-xl font-bold text-slate-800">0</h3>
-            </div>
+    <!-- 1. DYNAMIC STATISTICS CARDS (Muncul di Mode User & Admin) -->
+<div id="statsContainer" class="grid grid-cols-2 sm:grid-cols-4 gap-4 no-print">
+    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+        <div class="p-3 bg-indigo-50 rounded-lg text-indigo-600">
+            <i class="fa-solid fa-list-check text-xl"></i>
         </div>
-
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
-            <div class="p-3 bg-emerald-50 rounded-lg text-emerald-600">
-                <i class="fa-solid fa-circle-check text-xl"></i>
-            </div>
-            <div>
-                <p class="text-xs text-slate-500 font-medium">Done (Selesai)</p>
-                <h3 id="statDone" class="text-xl font-bold text-slate-800">0</h3>
-            </div>
-        </div>
-
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
-            <div class="p-3 bg-amber-50 rounded-lg text-amber-600">
-                <i class="fa-solid fa-spinner text-xl"></i>
-            </div>
-            <div>
-                <p class="text-xs text-slate-500 font-medium">In Progress</p>
-                <h3 id="statInProgress" class="text-xl font-bold text-slate-800">0</h3>
-            </div>
-        </div>
-
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
-            <div class="p-3 bg-blue-50 rounded-lg text-blue-600">
-                <i class="fa-solid fa-check-double text-xl"></i>
-            </div>
-            <div>
-                <p class="text-xs text-slate-500 font-medium">Kegiatan Hari Ini</p>
-                <h3 id="statCompleted" class="text-xl font-bold text-slate-800">0</h3>
-            </div>
+        <div>
+            <p class="text-xs text-slate-500 font-medium">Total Kegiatan</p>
+            <h3 id="statTotal" class="text-xl font-bold text-slate-800">0</h3>
         </div>
     </div>
 
-    <!-- 3. GRAFIK ANALISTIK DINAMIS (Mode Admin Only) -->
-    <div id="chartsContainer" class="grid grid-cols-1 lg:grid-cols-3 gap-6 no-print admin-only hidden">
-        
-        <!-- Grafik 1: Jenis Kegiatan -->
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-4">
-                <h4 class="text-sm font-bold text-slate-700 flex items-center gap-2">
-                    <i class="fa-solid fa-chart-pie text-indigo-500"></i>
-                    Jenis Kegiatan
-                </h4>
-            </div>
-            <div class="relative h-52 w-full flex items-center justify-center">
-                <canvas id="chartJenisKegiatan"></canvas>
-            </div>
+    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+        <div class="p-3 bg-emerald-50 rounded-lg text-emerald-600">
+            <i class="fa-solid fa-circle-check text-xl"></i>
         </div>
-
-        <!-- Grafik 2: Kegiatan per Katim/Tim Kerja -->
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-4">
-                <h4 class="text-sm font-bold text-slate-700 flex items-center gap-2">
-                    <i class="fa-solid fa-chart-column text-emerald-500"></i>
-                    Kegiatan per Tim Kerja
-                </h4>
-            </div>
-            <div class="relative h-52 w-full">
-                <canvas id="chartKatim"></canvas>
-            </div>
-        </div>
-
-        <!-- Grafik 3: Tren Bulanan -->
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-4">
-                <h4 class="text-sm font-bold text-slate-700 flex items-center gap-2">
-                    <i class="fa-solid fa-chart-line text-blue-500"></i>
-                    Tren Kegiatan Bulanan
-                </h4>
-            </div>
-            <div class="relative h-52 w-full">
-                <canvas id="chartTrenBulanan"></canvas>
-            </div>
+        <div>
+            <p class="text-xs text-slate-500 font-medium">Done (Selesai)</p>
+            <h3 id="statDone" class="text-xl font-bold text-slate-800">0</h3>
         </div>
     </div>
+
+    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+        <div class="p-3 bg-amber-50 rounded-lg text-amber-600">
+            <i class="fa-solid fa-spinner text-xl"></i>
+        </div>
+        <div>
+            <p class="text-xs text-slate-500 font-medium">In Progress</p>
+            <h3 id="statInProgress" class="text-xl font-bold text-slate-800">0</h3>
+        </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+        <div class="p-3 bg-blue-50 rounded-lg text-blue-600">
+            <i class="fa-solid fa-check-double text-xl"></i>
+        </div>
+        <div>
+            <p class="text-xs text-slate-500 font-medium">Kegiatan Hari Ini</p>
+            <h3 id="statCompleted" class="text-xl font-bold text-slate-800">0</h3>
+        </div>
+    </div>
+</div>
+
+<!-- 2. GRAFIK ANALISTIK DINAMIS (Tetap Khusus Admin / Hidden di Mode User) -->
+<div id="chartsContainer" class="grid grid-cols-1 lg:grid-cols-3 gap-6 no-print admin-only hidden">
+    
+    <!-- Grafik 1: Jenis Kegiatan -->
+    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-4">
+            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-2">
+                <i class="fa-solid fa-chart-pie text-indigo-500"></i>
+                Jenis Kegiatan
+            </h4>
+        </div>
+        <div class="relative h-52 w-full flex items-center justify-center">
+            <canvas id="chartJenisKegiatan"></canvas>
+        </div>
+    </div>
+
+    <!-- Grafik 2: Kegiatan per Katim/Tim Kerja -->
+    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-4">
+            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-2">
+                <i class="fa-solid fa-chart-column text-emerald-500"></i>
+                Kegiatan per Tim Kerja
+            </h4>
+        </div>
+        <div class="relative h-52 w-full">
+            <canvas id="chartKatim"></canvas>
+        </div>
+    </div>
+
+    <!-- Grafik 3: Tren Bulanan -->
+    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-4">
+            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-2">
+                <i class="fa-solid fa-chart-line text-blue-500"></i>
+                Tren Kegiatan Bulanan
+            </h4>
+        </div>
+        <div class="relative h-52 w-full">
+            <canvas id="chartTrenBulanan"></canvas>
+        </div>
+    </div>
+</div>
 </main>   
 
         <!-- Table Data Card -->
@@ -541,18 +541,18 @@
     const footerInfo = document.getElementById("modeFooterInfo");
 
     if (isAdmin) {
+        // Mode Admin: Tampilkan elemen admin (termasuk grafik)
         adminElements.forEach(el => el.classList.remove('hidden'));
         if (statusText) statusText.innerText = "Mode: Admin";
         if (lockIcon) lockIcon.className = "fa-solid fa-lock-open text-emerald-400";
         if (footerInfo) footerInfo.innerText = "Mode Akses: Administrator (Akses Penuh Statistik & Edit/Hapus)";
         
-        // -------------------------------------------------------------
-        // TAMBAHAN: Render grafik setelah elemen admin ditampilkan
-        // -------------------------------------------------------------
+        // Render grafik khusus di mode Admin
         setTimeout(() => {
             updateAdminCharts(activities);
         }, 100);
     } else {
+        // Mode User: Sembunyikan elemen admin (grafik disembunyikan, statistik tetap tampil)
         adminElements.forEach(el => el.classList.add('hidden'));
         if (statusText) statusText.innerText = "Mode: User";
         if (lockIcon) lockIcon.className = "fa-solid fa-lock text-amber-400";
