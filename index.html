@@ -106,58 +106,16 @@
     </header>
 
     <!-- Main Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow w-full space-y-6">
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow w-full space-y-6">
 
-        <!-- Header khusus mode Cetak/Print -->
-        <div class="hidden print-header text-center mb-6">
-            <h2 class="text-2xl font-bold uppercase">LAPORAN MONITORING KEGIATAN RUTIN KEPALA BALAI POM DI SURAKARTA</h2>
-            <p class="text-sm">Dicetak pada: <span id="printDate"></span></p>
-        </div>
+    <!-- Header khusus mode Cetak/Print -->
+    <div class="hidden print-header text-center mb-6">
+        <h2 class="text-2xl font-bold uppercase">LAPORAN MONITORING KEGIATAN RUTIN KEPALA BALAI POM DI SURAKARTA</h2>
+        <p class="text-sm">Dicetak pada: <span id="printDate"></span></p>
+    </div>
 
-        <!-- Dynamic Statistics Cards (Hanya Muncul di Mode Admin) -->
-        <div id="statsContainer" class="grid grid-cols-2 sm:grid-cols-4 gap-4 no-print admin-only hidden">
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
-                <div class="p-3 bg-indigo-50 rounded-lg text-indigo-600">
-                    <i class="fa-solid fa-list-check text-xl"></i>
-                </div>
-                <div>
-                    <p class="text-xs text-slate-500 font-medium">Total Kegiatan</p>
-                    <h3 id="statTotal" class="text-xl font-bold text-slate-800">0</h3>
-                </div>
-            </div>
-
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
-                <div class="p-3 bg-emerald-50 rounded-lg text-emerald-600">
-                    <i class="fa-solid fa-circle-check text-xl"></i>
-                </div>
-                <div>
-                    <p class="text-xs text-slate-500 font-medium">Done (Selesai)</p>
-                    <h3 id="statDone" class="text-xl font-bold text-slate-800">0</h3>
-                </div>
-            </div>
-
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
-                <div class="p-3 bg-amber-50 rounded-lg text-amber-600">
-                    <i class="fa-solid fa-spinner text-xl"></i>
-                </div>
-                <div>
-                    <p class="text-xs text-slate-500 font-medium">In Progress</p>
-                    <h3 id="statInProgress" class="text-xl font-bold text-slate-800">0</h3>
-                </div>
-            </div>
-
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
-                <div class="p-3 bg-blue-50 rounded-lg text-blue-600">
-                    <i class="fa-solid fa-check-double text-xl"></i>
-                </div>
-                <div>
-                    <p class="text-xs text-slate-500 font-medium">Kegiatan hari ini</p>
-                    <h3 id="statCompleted" class="text-xl font-bold text-slate-800">0</h3>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Input Form Card -->
+    <!-- 1. FORM ISIAN KEGIATAN (Paling Atas) -->
+    <!-- Input Form Card -->
         <div id="formContainer" class="bg-white rounded-xl border border-slate-200 shadow-sm p-5 transition-all no-print">
             <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
                 <div class="flex items-center gap-2">
@@ -248,6 +206,93 @@
                 </div>
             </form>
         </div>
+
+    <!-- 2. DYNAMIC STATISTICS CARDS (Mode Admin Only) -->
+    <div id="statsContainer" class="grid grid-cols-2 sm:grid-cols-4 gap-4 no-print admin-only hidden">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+            <div class="p-3 bg-indigo-50 rounded-lg text-indigo-600">
+                <i class="fa-solid fa-list-check text-xl"></i>
+            </div>
+            <div>
+                <p class="text-xs text-slate-500 font-medium">Total Kegiatan</p>
+                <h3 id="statTotal" class="text-xl font-bold text-slate-800">0</h3>
+            </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+            <div class="p-3 bg-emerald-50 rounded-lg text-emerald-600">
+                <i class="fa-solid fa-circle-check text-xl"></i>
+            </div>
+            <div>
+                <p class="text-xs text-slate-500 font-medium">Done (Selesai)</p>
+                <h3 id="statDone" class="text-xl font-bold text-slate-800">0</h3>
+            </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+            <div class="p-3 bg-amber-50 rounded-lg text-amber-600">
+                <i class="fa-solid fa-spinner text-xl"></i>
+            </div>
+            <div>
+                <p class="text-xs text-slate-500 font-medium">In Progress</p>
+                <h3 id="statInProgress" class="text-xl font-bold text-slate-800">0</h3>
+            </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+            <div class="p-3 bg-blue-50 rounded-lg text-blue-600">
+                <i class="fa-solid fa-check-double text-xl"></i>
+            </div>
+            <div>
+                <p class="text-xs text-slate-500 font-medium">Kegiatan Hari Ini</p>
+                <h3 id="statCompleted" class="text-xl font-bold text-slate-800">0</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. GRAFIK ANALISTIK DINAMIS (Mode Admin Only) -->
+    <div id="chartsContainer" class="grid grid-cols-1 lg:grid-cols-3 gap-6 no-print admin-only hidden">
+        
+        <!-- Grafik 1: Jenis Kegiatan -->
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-4">
+                <h4 class="text-sm font-bold text-slate-700 flex items-center gap-2">
+                    <i class="fa-solid fa-chart-pie text-indigo-500"></i>
+                    Jenis Kegiatan
+                </h4>
+            </div>
+            <div class="relative h-52 w-full flex items-center justify-center">
+                <canvas id="chartJenisKegiatan"></canvas>
+            </div>
+        </div>
+
+        <!-- Grafik 2: Kegiatan per Katim/Tim Kerja -->
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-4">
+                <h4 class="text-sm font-bold text-slate-700 flex items-center gap-2">
+                    <i class="fa-solid fa-chart-column text-emerald-500"></i>
+                    Kegiatan per Tim Kerja
+                </h4>
+            </div>
+            <div class="relative h-52 w-full">
+                <canvas id="chartKatim"></canvas>
+            </div>
+        </div>
+
+        <!-- Grafik 3: Tren Bulanan -->
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-4">
+                <h4 class="text-sm font-bold text-slate-700 flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line text-blue-500"></i>
+                    Tren Kegiatan Bulanan
+                </h4>
+            </div>
+            <div class="relative h-52 w-full">
+                <canvas id="chartTrenBulanan"></canvas>
+            </div>
+        </div>
+    </div>
+</main>   
 
         <!-- Table Data Card -->
         <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
@@ -363,21 +408,7 @@
     // 1. STATE & INITIALIZATION
     // ==========================================
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx3cO19BZU5R2g9KSat9RY5lTgJ2HyPKb-9DDMKOXNLv_qGcJRmkigfd4nIGoYnQ6Cfkw/exec";
-
-    let activities = [
-        {
-            no: 1,
-            done: false,
-            katim: "Widya (Kasubag Tata Usaha)",
-            kegiatan: "Rapat",
-            rincian: "Rapat progresif di aula (pukul 08.00 wib)",
-            status: "In Progress",
-            tanggal: "2026-08-10",
-            sisaWaktu: "-73 hari berlalu",
-            dataDukung: "https://simpan.pom.go.id/index.php/s/FMAbnpdq4NBy4Xi?path=%2FData%20Dukung%20Kegiatan%20Kabalai%202026"
-        }
-    ];
-
+    
     let isAdmin = false;
     let adminPin = localStorage.getItem("SIM_KEGIATAN_ADMIN_PIN") || "533412";
 
@@ -504,24 +535,31 @@
     }
 
     function updateAdminUi() {
-        const adminElements = document.querySelectorAll('.admin-only');
-        const statusText = document.getElementById("adminStatusText");
-        const lockIcon = document.getElementById("adminLockIcon");
-        const footerInfo = document.getElementById("modeFooterInfo");
+    const adminElements = document.querySelectorAll('.admin-only');
+    const statusText = document.getElementById("adminStatusText");
+    const lockIcon = document.getElementById("adminLockIcon");
+    const footerInfo = document.getElementById("modeFooterInfo");
 
-        if (isAdmin) {
-            adminElements.forEach(el => el.classList.remove('hidden'));
-            if (statusText) statusText.innerText = "Mode: Admin";
-            if (lockIcon) lockIcon.className = "fa-solid fa-lock-open text-emerald-400";
-            if (footerInfo) footerInfo.innerText = "Mode Akses: Administrator (Akses Penuh Statistik & Edit/Hapus)";
-        } else {
-            adminElements.forEach(el => el.classList.add('hidden'));
-            if (statusText) statusText.innerText = "Mode: User";
-            if (lockIcon) lockIcon.className = "fa-solid fa-lock text-amber-400";
-            if (footerInfo) footerInfo.innerText = "Mode Akses: User (Bisa Input Data Baru)";
-        }
-        renderTable();
+    if (isAdmin) {
+        adminElements.forEach(el => el.classList.remove('hidden'));
+        if (statusText) statusText.innerText = "Mode: Admin";
+        if (lockIcon) lockIcon.className = "fa-solid fa-lock-open text-emerald-400";
+        if (footerInfo) footerInfo.innerText = "Mode Akses: Administrator (Akses Penuh Statistik & Edit/Hapus)";
+        
+        // -------------------------------------------------------------
+        // TAMBAHAN: Render grafik setelah elemen admin ditampilkan
+        // -------------------------------------------------------------
+        setTimeout(() => {
+            updateAdminCharts(activities);
+        }, 100);
+    } else {
+        adminElements.forEach(el => el.classList.add('hidden'));
+        if (statusText) statusText.innerText = "Mode: User";
+        if (lockIcon) lockIcon.className = "fa-solid fa-lock text-amber-400";
+        if (footerInfo) footerInfo.innerText = "Mode Akses: User (Bisa Input Data Baru)";
     }
+    renderTable();
+}
 
     // ==========================================
     // 4. FORM CALCULATIONS & HANDLING
@@ -743,11 +781,18 @@
         }
 
         document.getElementById("recordCountInfo").innerText = `Menampilkan ${filteredData.length} dari ${activities.length} data`;
-        document.getElementById("statTotal").innerText = filteredData.length;
-        document.getElementById("statDone").innerText = filteredData.filter(a => a.done).length;
-        document.getElementById("statInProgress").innerText = filteredData.filter(a => a.status === "In Progress").length;
-        document.getElementById("statCompleted").innerText = filteredData.filter(a => a.sisaWaktu === "Hari Ini (H-0)").length;
+    document.getElementById("statTotal").innerText = filteredData.length;
+    document.getElementById("statDone").innerText = filteredData.filter(a => a.done).length;
+    document.getElementById("statInProgress").innerText = filteredData.filter(a => a.status === "In Progress").length;
+    document.getElementById("statCompleted").innerText = filteredData.filter(a => a.sisaWaktu === "Hari Ini (H-0)").length;
+
+    // -------------------------------------------------------------
+    // TAMBAHAN: Perbarui grafik secara otomatis jika sedang mode Admin
+    // -------------------------------------------------------------
+    if (isAdmin) {
+        updateAdminCharts(filteredData);
     }
+}
 
     function resetDateFilter() {
         document.getElementById("startDate").value = "";
@@ -998,6 +1043,120 @@
             showToast("Gagal menyinkronkan perubahan ke Google Sheet", "error");
         }
     }
-    </script>
+
+let chartJenis, chartKatim, chartTren;
+
+// Panggil fungsi ini setiap kali data berubah atau saat mode admin diaktifkan
+function updateAdminCharts(dataKegiatan = []) {
+    // 1. Inisialisasi/Reset Variabel Penampung Data
+    let countJenis = {};
+    let countKatim = {};
+    let countBulan = { 'Jan':0, 'Feb':0, 'Mar':0, 'Apr':0, 'Mei':0, 'Jun':0, 'Jul':0, 'Agu':0, 'Sep':0, 'Okt':0, 'Nov':0, 'Des':0 };
+    const namaBulan = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+
+    // 2. Lakukan looping pada data kegiatan untuk mengelompokkan (Grouping)
+    dataKegiatan.forEach(item => {
+        // A. Kelompokkan Jenis Kegiatan
+        let jenis = item.kegiatan || 'Lainnya';
+        countJenis[jenis] = (countJenis[jenis] || 0) + 1;
+
+        // B. Kelompokkan per Katim / Tim Kerja
+        let katim = item.katim || 'Lainnya';
+        countKatim[katim] = (countKatim[katim] || 0) + 1;
+
+        // C. Kelompokkan Tren Bulanan berdasarkan Tanggal Pelaksanaan
+        if (item.tanggal) {
+            let tglStr = String(item.tanggal).split('T')[0]; 
+        let parts = tglStr.split('-');
+        if (parts.length === 3) {
+            let bulanIndex = parseInt(parts[1], 10) - 1; // Month index 0-11
+            if (bulanIndex >= 0 && bulanIndex < 12) {
+                let namaBulanKey = namaBulan[bulanIndex];
+                countBulan[namaBulanKey] = (countBulan[namaBulanKey] || 0) + 1;
+            }
+        }
+    }
+});
+
+    // --- RENDER GRAFIK 1: JENIS KEGIATAN (Doughnut) ---
+    const ctxJenis = document.getElementById('chartJenisKegiatan')?.getContext('2d');
+    if (ctxJenis) {
+        if (chartJenis) chartJenis.destroy();
+        chartJenis = new Chart(ctxJenis, {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(countJenis).length > 0 ? Object.keys(countJenis) : ['Belum Ada Data'],
+                datasets: [{
+                    data: Object.keys(countJenis).length > 0 ? Object.values(countJenis) : [1],
+                    backgroundColor: ['#6366f1', '#10b981', '#f59e0b', '#3b82f6', '#ec4899', '#94a3b8'],
+                    borderWidth: 0
+                }]
+            },
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false, 
+                plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } } 
+            }
+        });
+    }
+
+    // --- RENDER GRAFIK 2: KEGIATAN PER KATIM (Bar) ---
+    const ctxKatim = document.getElementById('chartKatim')?.getContext('2d');
+    if (ctxKatim) {
+        if (chartKatim) chartKatim.destroy();
+        chartKatim = new Chart(ctxKatim, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(countKatim).length > 0 ? Object.keys(countKatim) : ['-'],
+                datasets: [{
+                    label: 'Jumlah Kegiatan',
+                    data: Object.keys(countKatim).length > 0 ? Object.values(countKatim) : [0],
+                    backgroundColor: '#10b981',
+                    borderRadius: 6
+                }]
+            },
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false, 
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, ticks: { precision: 0 } },
+                    x: { ticks: { font: { size: 10 } } }
+                }
+            }
+        });
+    }
+
+    // --- RENDER GRAFIK 3: TREN BULANAN (Line) ---
+    const ctxTren = document.getElementById('chartTrenBulanan')?.getContext('2d');
+    if (ctxTren) {
+        if (chartTren) chartTren.destroy();
+        chartTren = new Chart(ctxTren, {
+            type: 'line',
+            data: {
+                labels: namaBulan,
+                datasets: [{
+                    label: 'Total Kegiatan',
+                    data: namaBulan.map(b => countBulan[b]),
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 4
+                }]
+            },
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false, 
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, ticks: { precision: 0 } }
+                }
+            }
+        });
+    }
+}
+
+</script>
 </body>
 </html>
